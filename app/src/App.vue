@@ -1,18 +1,21 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <TheHeader
+    v-show="showHeader"
+  />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
 import TheHeader from './components/TheHeader.vue';
-
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
     TheHeader
+  },
+  data() {
+      return {
+        showHeader: true,
+      }
   }
 }
 </script>

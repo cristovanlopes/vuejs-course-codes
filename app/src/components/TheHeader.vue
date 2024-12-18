@@ -1,35 +1,71 @@
 <template>
-    <div class="header">
-        <h1>{{ title }}</h1>
-        <button @click="handleClick">Click Me</button>
+   <div>
+    
+    <div
+        v-for="obj in todos"
+        v-bind:key="obj.id"
+        class="todos-item"
+    >
+         {{ obj.title }}
     </div>
+
+   </div>
 </template>
 
 <script>
     export default {
-        props: ['title'],
-        methods: {
-            handleClick() {
-                alert('Button clicked!');
+            name: 'App',
+            data() {
+                return {
+            todos: [
+            {
+                "userId": 1,
+                "id": 1,
+                "title": "delectus aut autem",
+                "completed": false
+            },
+            {
+                "userId": 1,
+                "id": 2,
+                "title": "quis ut nam facilis et officia qui",
+                "completed": false
+            },
+            {
+                "userId": 1,
+                "id": 3,
+                "title": "fugiat veniam minus",
+                "completed": false
+            },
+            {
+                "userId": 1,
+                "id": 4,
+                "title": "et porro tempora",
+                "completed": true
+            },
+            {
+                "userId": 1,
+                "id": 5,
+                "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
+                "completed": false
+            }
+            ]
             }
         }
     }
 </script>
 
 <style>
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-        background-color: #f8f9fa;
-        border-bottom: 1px solid #dee2e6;
+    .todos-item {
+        background: #000;
+        margin: 0 0 5px 0;
+        padding: 3px 6px;
+        color: #fff;
     }
-    button {
-        padding: 5px 10px;
-        border: none;
-        background-color: #007bff;
-        color: white;
-        cursor: pointer;
+    #app {
+        font-family: Arial, Helvetica, sans-serif;
+        -webkit-font-smothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        color: #2c3e50;
+        margin: 60px;
     }
 </style>
