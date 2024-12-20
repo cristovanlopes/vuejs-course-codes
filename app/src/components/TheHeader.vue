@@ -1,13 +1,17 @@
 <template>
    <div>
-    
-    <div
-        v-for="obj in todos"
-        v-bind:key="obj.id"
-        class="todos-item"
-    >
-         {{ obj.title }}
-    </div>
+       
+       <div
+       v-for="(obj, index) in todos"
+       v-bind:key="obj.id"
+       class="todos-item"
+       >
+       <img
+       v-if="obj.imgSrc" 
+       :src="obj.imgSrc"
+       >
+       {{ index }} - {{ obj.title }}
+        </div>
 
    </div>
 </template>
@@ -17,23 +21,26 @@
             name: 'App',
             data() {
                 return {
-            todos: [
-            {
-                "userId": 1,
-                "id": 1,
-                "title": "delectus aut autem",
-                "completed": false
-            },
-            {
-                "userId": 1,
-                "id": 2,
-                "title": "quis ut nam facilis et officia qui",
-                "completed": false
-            },
-            {
-                "userId": 1,
-                "id": 3,
-                "title": "fugiat veniam minus",
+                    todos: [
+                        {
+                            "userId": 1,
+                            "id": 1,
+                            "title": "delectus aut autem",
+                            "completed": false,
+                            "imgSrc": 'https://dummyimage.com/150x150/fff/000000',
+                        },
+                        {
+                            "userId": 1,
+                            "id": 2,
+                            "title": "quis ut nam facilis et officia qui",
+                            "completed": false,
+                            "imgSrc": 'https://dummyimage.com/150x150/fff/000000',
+
+                        },
+                        {
+                            "userId": 1,
+                            "id": 3,
+                            "title": "fugiat veniam minus",
                 "completed": false
             },
             {
@@ -60,6 +67,7 @@
         margin: 0 0 5px 0;
         padding: 3px 6px;
         color: #fff;
+        text-align: left;
     }
     #app {
         font-family: Arial, Helvetica, sans-serif;
